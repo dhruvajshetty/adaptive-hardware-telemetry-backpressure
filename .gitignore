@@ -1,0 +1,11 @@
+# Simulation outputs
+a.out
+*.vcd
+
+# Editor files
+.vscode/
+*.swp
+*.bak
+
+# OS files
+.DS_Store
