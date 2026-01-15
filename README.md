@@ -45,46 +45,8 @@ This project focuses on **architecture and control behavior**, not FPGA or board
 
 ## 🏗 Architecture Overview
 
-+-----------------------------+
-|        Testbench            |
-|                             |
-|  valid / ready generator    |
-|  clk / rst_n                |
-+--------------+--------------+
-               |
-               v
-+---------------------------------------------+
-|               AHTBE Core                    |
-|                                             |
-|  +-----------------------------+            |
-|  | Queue Occupancy Tracker     |            |
-|  | (queue_level)               |            |
-|  +--------------+--------------+            |
-|                 |                           |
-|  +--------------v--------------+            |
-<<<<<<< HEAD
-|  | Telemetry Filter             |            |
-|  | (Moving Average)             |            |
-|  +--------------+--------------+            |
-|                 |                           |
-|  +--------------v--------------+            |
-|  | Congestion Control           |            |
-|  | (Hysteresis)                 |            |
-|  +--------------+--------------+            |
-|                 |                           |
-|           backpressure                     |
-=======
-|  | Telemetry Filter             |           |
-|  | (Moving Average)             |           |
-|  +--------------+--------------+            |
-|                 |                           |
-|  +--------------v--------------+            |
-|  | Congestion Control           |           |
-|  | (Hysteresis)                 |           |
-|  +--------------+--------------+            |
-|                 |                           |
-|           backpressure                      |
->>>>>>> c484715 (Refine architecture diagram for clarity and readability)
+<img width="485" height="600" alt="image" src="https://github.com/user-attachments/assets/321ab967-6e79-497a-a25a-938b8965c350" />
+
 +---------------------------------------------+
 
 ---
