@@ -1,5 +1,5 @@
 # Adaptive Hardware Telemetry & Backpressure Engine (AHTBE)
-
+**Status:** v1.0 (Stable, simulation-verified)
 AHTBE is a **simulation-only, pre-silicon hardware module** written in Verilog that monitors queue occupancy, detects sustained congestion using adaptive telemetry, and applies feedback-based backpressure to regulate data flow.
 
 The project follows **industry-style RTL and verification methodology**, including clean separation of design and testbench, self-driven simulation, assertions, and waveform-based analysis.
