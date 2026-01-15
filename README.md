@@ -45,7 +45,6 @@ This project focuses on **architecture and control behavior**, not FPGA or board
 
 ## 🏗 Architecture Overview
 
-### High-Level Flow
 +-----------------------------+
 |        Testbench            |
 |                             |
@@ -63,6 +62,7 @@ This project focuses on **architecture and control behavior**, not FPGA or board
 |  +--------------+--------------+            |
 |                 |                           |
 |  +--------------v--------------+            |
+<<<<<<< HEAD
 |  | Telemetry Filter             |            |
 |  | (Moving Average)             |            |
 |  +--------------+--------------+            |
@@ -73,12 +73,23 @@ This project focuses on **architecture and control behavior**, not FPGA or board
 |  +--------------+--------------+            |
 |                 |                           |
 |           backpressure                     |
+=======
+|  | Telemetry Filter             |           |
+|  | (Moving Average)             |           |
+|  +--------------+--------------+            |
+|                 |                           |
+|  +--------------v--------------+            |
+|  | Congestion Control           |           |
+|  | (Hysteresis)                 |           |
+|  +--------------+--------------+            |
+|                 |                           |
+|           backpressure                      |
+>>>>>>> c484715 (Refine architecture diagram for clarity and readability)
 +---------------------------------------------+
 
 ---
 
 ## 🧪 Verification Methodology
-
 - Self-driven testbench generates:
   - Producer traffic (`valid`)
   - Consumer behavior (`ready`)
