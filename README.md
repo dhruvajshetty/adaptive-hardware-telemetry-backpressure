@@ -46,42 +46,34 @@ This project focuses on **architecture and control behavior**, not FPGA or board
 ## 🏗 Architecture Overview
 
 ### High-Level Flow
-+------------------------------------------------------+
-| Testbench |
-| |
-| valid ----> |
-| ready ----> Traffic & Consumer Models |
-| clk ----> |
-| rst_n ----> |
-+------------------------+-----------------------------+
- |
- v
-+------------------------------------------------------+
-| AHTBE Core |
-| |
-| +-------------------------------+ |
-| | Queue Tracker | |
-| | (queue_level) | |
-| +---------------+---------------+ |
-| | |
-| +---------------v---------------+ |
-| | Moving Average | |
-| | (queue_avg) | |
-| +---------------+---------------+ |
-| | |
-| +---------------v---------------+ |
-| | Congestion Detection | |
-| | + Hysteresis | |
-| +---------------+---------------+ |
-| | |
-| +---------------v---------------+ |
-| | Backpressure Generator | |
-| +-------------------------------+ |
-| |
-+------------------------+-----------------------------+
- |
- v
- backpressure
++-----------------------------+
+|        Testbench            |
+|                             |
+|  valid / ready generator    |
+|  clk / rst_n                |
++--------------+--------------+
+               |
+               v
++---------------------------------------------+
+|               AHTBE Core                    |
+|                                             |
+|  +-----------------------------+            |
+|  | Queue Occupancy Tracker     |            |
+|  | (queue_level)               |            |
+|  +--------------+--------------+            |
+|                 |                           |
+|  +--------------v--------------+            |
+|  | Telemetry Filter             |            |
+|  | (Moving Average)             |            |
+|  +--------------+--------------+            |
+|                 |                           |
+|  +--------------v--------------+            |
+|  | Congestion Control           |            |
+|  | (Hysteresis)                 |            |
+|  +--------------+--------------+            |
+|                 |                           |
+|           backpressure                     |
++---------------------------------------------+
 
 ---
 
@@ -99,18 +91,6 @@ This mirrors **pre-silicon verification workflows** used in industry.
 
 ---
 
-## 📁 Repository Structure
-
-ahtbe/
-├── rtl/
-│ └── ahtbe_core.v # Core RTL logic
-├── tb/
-│ └── tb_top.sv # Testbench & assertions
-├── docs/
-│ └── ahtbe_architecture.png
-└── README.md
-
----
 
 ## ▶️ How to Run the Simulation
 
